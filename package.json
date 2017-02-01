@@ -1,0 +1,26 @@
+{
+  "name": "beerlocker",
+  "version": "1.0.0",
+  "description": "Aplicacion de prueba de restful",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karkadian/Beer-Locker.git"
+  },
+  "keywords": [
+    "beer"
+  ],
+  "author": "Kevin Carcache",
+  "bugs": {
+    "url": "https://github.com/karkadian/Beer-Locker/issues"
+  },
+  "homepage": "https://github.com/karkadian/Beer-Locker#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0"
+  }
+}
