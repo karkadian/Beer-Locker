@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var beerController = require('./controllers/beer');
 var userController = require('./controllers/user');
 var authController = require('./controllers/auth');
+var clientController = require('./controllers/client');
 
 // Connect to the beerlocker MongoDB
 mongoose.connect('mongodb://localhost:27017/beerlocker');
@@ -26,19 +27,23 @@ var router = express.Router();
 
 // Create endpoint handlers for /beers
 router.route('/beers')
-  .post(authController.isAuthenticated, beerController.postBeers)
-  .get(authController.isAuthenticated, beerController.getBeers);
+  	.post(authController.isAuthenticated, beerController.postBeers)
+	.get(authController.isAuthenticated, beerController.getBeers);
 
 // Create endpoint handlers for /beers/:beer_id
 router.route('/beers/:beer_id')
-  .get(authController.isAuthenticated, beerController.getBeer)
-  .put(authController.isAuthenticated, beerController.putBeer)
-  .delete(authController.isAuthenticated, beerController.deleteBeer);
+  	.get(authController.isAuthenticated, beerController.getBeer)
+  	.put(authController.isAuthenticated, beerController.putBeer)
+ 	.delete(authController.isAuthenticated, beerController.deleteBeer);
 
 // Create endpoint handlers for /users
 router.route('/users')
-  .post(userController.postUsers)
-  .get(authController.isAuthenticated, userController.getUsers);
+ 	.post(userController.postUsers)
+	.get(authController.isAuthenticated, userController.getUsers);
+
+router.route('clients')
+	.post(authController.isAuthenticated, clientController.postClients)
+	.get(authController.isAuthenticated, clientController.getClients);
 
 // Register all our routes with /api
 app.use('/api', router);
